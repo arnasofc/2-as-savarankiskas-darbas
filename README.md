@@ -1,1 +1,1 @@
-# sisteminis2
+# 2-as-savarankiskas-darbas
