@@ -176,19 +176,39 @@ namespace sisteminis2 {
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->tabControl3 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage9 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
+			this->tabPage10 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage11 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->tabControl4 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage12 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->richTextBox3 = (gcnew System::Windows::Forms::RichTextBox());
+			this->tabPage13 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage14 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->tabControl5 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage15 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->richTextBox4 = (gcnew System::Windows::Forms::RichTextBox());
+			this->tabPage16 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage17 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
+			this->tabControl6 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage18 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->richTextBox5 = (gcnew System::Windows::Forms::RichTextBox());
+			this->tabPage19 = (gcnew System::Windows::Forms::TabPage());
+			this->tabPage20 = (gcnew System::Windows::Forms::TabPage());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->button14 = (gcnew System::Windows::Forms::Button());
@@ -197,51 +217,31 @@ namespace sisteminis2 {
 			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
-			this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
-			this->tabControl3 = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage9 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage10 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage11 = (gcnew System::Windows::Forms::TabPage());
-			this->tabControl4 = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage12 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage13 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage14 = (gcnew System::Windows::Forms::TabPage());
-			this->tabControl5 = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage15 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage16 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage17 = (gcnew System::Windows::Forms::TabPage());
-			this->tabControl6 = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage18 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage19 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage20 = (gcnew System::Windows::Forms::TabPage());
 			this->menuStrip1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
+			this->tabControl2->SuspendLayout();
+			this->tabPage6->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tabPage2->SuspendLayout();
+			this->tabControl3->SuspendLayout();
+			this->tabPage9->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->tabPage3->SuspendLayout();
+			this->tabControl4->SuspendLayout();
+			this->tabPage12->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->tabPage4->SuspendLayout();
+			this->tabControl5->SuspendLayout();
+			this->tabPage15->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->tabPage5->SuspendLayout();
+			this->tabControl6->SuspendLayout();
+			this->tabPage18->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->groupBox2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
-			this->tabControl2->SuspendLayout();
-			this->tabPage6->SuspendLayout();
-			this->tabControl3->SuspendLayout();
-			this->tabPage9->SuspendLayout();
-			this->tabControl4->SuspendLayout();
-			this->tabPage12->SuspendLayout();
-			this->tabControl5->SuspendLayout();
-			this->tabPage15->SuspendLayout();
-			this->tabControl6->SuspendLayout();
-			this->tabPage18->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -507,6 +507,29 @@ namespace sisteminis2 {
 			this->tabPage1->Text = L"Sarasas 1";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
+			// tabControl2
+			// 
+			this->tabControl2->Controls->Add(this->tabPage6);
+			this->tabControl2->Controls->Add(this->tabPage7);
+			this->tabControl2->Controls->Add(this->tabPage8);
+			this->tabControl2->Location = System::Drawing::Point(-4, 3);
+			this->tabControl2->Name = L"tabControl2";
+			this->tabControl2->SelectedIndex = 0;
+			this->tabControl2->Size = System::Drawing::Size(517, 649);
+			this->tabControl2->TabIndex = 0;
+			// 
+			// tabPage6
+			// 
+			this->tabPage6->Controls->Add(this->pictureBox1);
+			this->tabPage6->Controls->Add(this->richTextBox1);
+			this->tabPage6->Location = System::Drawing::Point(4, 29);
+			this->tabPage6->Name = L"tabPage6";
+			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage6->Size = System::Drawing::Size(509, 616);
+			this->tabPage6->TabIndex = 0;
+			this->tabPage6->Text = L"Sarasas 1";
+			this->tabPage6->UseVisualStyleBackColor = true;
+			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
@@ -518,6 +541,25 @@ namespace sisteminis2 {
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Visible = false;
 			// 
+			// tabPage7
+			// 
+			this->tabPage7->Location = System::Drawing::Point(4, 29);
+			this->tabPage7->Name = L"tabPage7";
+			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage7->Size = System::Drawing::Size(509, 616);
+			this->tabPage7->TabIndex = 1;
+			this->tabPage7->Text = L"Vargsiukai";
+			this->tabPage7->UseVisualStyleBackColor = true;
+			// 
+			// tabPage8
+			// 
+			this->tabPage8->Location = System::Drawing::Point(4, 29);
+			this->tabPage8->Name = L"tabPage8";
+			this->tabPage8->Size = System::Drawing::Size(509, 616);
+			this->tabPage8->TabIndex = 2;
+			this->tabPage8->Text = L"Kietiakiai";
+			this->tabPage8->UseVisualStyleBackColor = true;
+			// 
 			// tabPage2
 			// 
 			this->tabPage2->Controls->Add(this->tabControl3);
@@ -528,6 +570,29 @@ namespace sisteminis2 {
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Sarasas 2";
 			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// tabControl3
+			// 
+			this->tabControl3->Controls->Add(this->tabPage9);
+			this->tabControl3->Controls->Add(this->tabPage10);
+			this->tabControl3->Controls->Add(this->tabPage11);
+			this->tabControl3->Location = System::Drawing::Point(-4, 3);
+			this->tabControl3->Name = L"tabControl3";
+			this->tabControl3->SelectedIndex = 0;
+			this->tabControl3->Size = System::Drawing::Size(517, 649);
+			this->tabControl3->TabIndex = 14;
+			// 
+			// tabPage9
+			// 
+			this->tabPage9->Controls->Add(this->pictureBox2);
+			this->tabPage9->Controls->Add(this->richTextBox2);
+			this->tabPage9->Location = System::Drawing::Point(4, 29);
+			this->tabPage9->Name = L"tabPage9";
+			this->tabPage9->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage9->Size = System::Drawing::Size(509, 616);
+			this->tabPage9->TabIndex = 0;
+			this->tabPage9->Text = L"Sarasas 2";
+			this->tabPage9->UseVisualStyleBackColor = true;
 			// 
 			// pictureBox2
 			// 
@@ -550,6 +615,25 @@ namespace sisteminis2 {
 			this->richTextBox2->TabIndex = 9;
 			this->richTextBox2->Text = L"";
 			// 
+			// tabPage10
+			// 
+			this->tabPage10->Location = System::Drawing::Point(4, 29);
+			this->tabPage10->Name = L"tabPage10";
+			this->tabPage10->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage10->Size = System::Drawing::Size(509, 616);
+			this->tabPage10->TabIndex = 1;
+			this->tabPage10->Text = L"Vargsiukai";
+			this->tabPage10->UseVisualStyleBackColor = true;
+			// 
+			// tabPage11
+			// 
+			this->tabPage11->Location = System::Drawing::Point(4, 29);
+			this->tabPage11->Name = L"tabPage11";
+			this->tabPage11->Size = System::Drawing::Size(509, 616);
+			this->tabPage11->TabIndex = 2;
+			this->tabPage11->Text = L"Kietiakiai";
+			this->tabPage11->UseVisualStyleBackColor = true;
+			// 
 			// tabPage3
 			// 
 			this->tabPage3->Controls->Add(this->tabControl4);
@@ -560,6 +644,29 @@ namespace sisteminis2 {
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Sarasas 3";
 			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// tabControl4
+			// 
+			this->tabControl4->Controls->Add(this->tabPage12);
+			this->tabControl4->Controls->Add(this->tabPage13);
+			this->tabControl4->Controls->Add(this->tabPage14);
+			this->tabControl4->Location = System::Drawing::Point(-4, 3);
+			this->tabControl4->Name = L"tabControl4";
+			this->tabControl4->SelectedIndex = 0;
+			this->tabControl4->Size = System::Drawing::Size(517, 649);
+			this->tabControl4->TabIndex = 15;
+			// 
+			// tabPage12
+			// 
+			this->tabPage12->Controls->Add(this->pictureBox3);
+			this->tabPage12->Controls->Add(this->richTextBox3);
+			this->tabPage12->Location = System::Drawing::Point(4, 29);
+			this->tabPage12->Name = L"tabPage12";
+			this->tabPage12->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage12->Size = System::Drawing::Size(509, 616);
+			this->tabPage12->TabIndex = 0;
+			this->tabPage12->Text = L"Sarasas 3";
+			this->tabPage12->UseVisualStyleBackColor = true;
 			// 
 			// pictureBox3
 			// 
@@ -582,6 +689,25 @@ namespace sisteminis2 {
 			this->richTextBox3->TabIndex = 9;
 			this->richTextBox3->Text = L"";
 			// 
+			// tabPage13
+			// 
+			this->tabPage13->Location = System::Drawing::Point(4, 29);
+			this->tabPage13->Name = L"tabPage13";
+			this->tabPage13->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage13->Size = System::Drawing::Size(509, 616);
+			this->tabPage13->TabIndex = 1;
+			this->tabPage13->Text = L"Vargsiukai";
+			this->tabPage13->UseVisualStyleBackColor = true;
+			// 
+			// tabPage14
+			// 
+			this->tabPage14->Location = System::Drawing::Point(4, 29);
+			this->tabPage14->Name = L"tabPage14";
+			this->tabPage14->Size = System::Drawing::Size(509, 616);
+			this->tabPage14->TabIndex = 2;
+			this->tabPage14->Text = L"Kietiakiai";
+			this->tabPage14->UseVisualStyleBackColor = true;
+			// 
 			// tabPage4
 			// 
 			this->tabPage4->Controls->Add(this->tabControl5);
@@ -592,6 +718,29 @@ namespace sisteminis2 {
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Sarasas 4";
 			this->tabPage4->UseVisualStyleBackColor = true;
+			// 
+			// tabControl5
+			// 
+			this->tabControl5->Controls->Add(this->tabPage15);
+			this->tabControl5->Controls->Add(this->tabPage16);
+			this->tabControl5->Controls->Add(this->tabPage17);
+			this->tabControl5->Location = System::Drawing::Point(-4, 3);
+			this->tabControl5->Name = L"tabControl5";
+			this->tabControl5->SelectedIndex = 0;
+			this->tabControl5->Size = System::Drawing::Size(517, 649);
+			this->tabControl5->TabIndex = 16;
+			// 
+			// tabPage15
+			// 
+			this->tabPage15->Controls->Add(this->pictureBox4);
+			this->tabPage15->Controls->Add(this->richTextBox4);
+			this->tabPage15->Location = System::Drawing::Point(4, 29);
+			this->tabPage15->Name = L"tabPage15";
+			this->tabPage15->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage15->Size = System::Drawing::Size(509, 616);
+			this->tabPage15->TabIndex = 0;
+			this->tabPage15->Text = L"Sarasas 4";
+			this->tabPage15->UseVisualStyleBackColor = true;
 			// 
 			// pictureBox4
 			// 
@@ -614,6 +763,25 @@ namespace sisteminis2 {
 			this->richTextBox4->TabIndex = 9;
 			this->richTextBox4->Text = L"";
 			// 
+			// tabPage16
+			// 
+			this->tabPage16->Location = System::Drawing::Point(4, 29);
+			this->tabPage16->Name = L"tabPage16";
+			this->tabPage16->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage16->Size = System::Drawing::Size(509, 616);
+			this->tabPage16->TabIndex = 1;
+			this->tabPage16->Text = L"Vargsiukai";
+			this->tabPage16->UseVisualStyleBackColor = true;
+			// 
+			// tabPage17
+			// 
+			this->tabPage17->Location = System::Drawing::Point(4, 29);
+			this->tabPage17->Name = L"tabPage17";
+			this->tabPage17->Size = System::Drawing::Size(509, 616);
+			this->tabPage17->TabIndex = 2;
+			this->tabPage17->Text = L"Kietiakiai";
+			this->tabPage17->UseVisualStyleBackColor = true;
+			// 
 			// tabPage5
 			// 
 			this->tabPage5->Controls->Add(this->tabControl6);
@@ -624,6 +792,29 @@ namespace sisteminis2 {
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Sarasas 5";
 			this->tabPage5->UseVisualStyleBackColor = true;
+			// 
+			// tabControl6
+			// 
+			this->tabControl6->Controls->Add(this->tabPage18);
+			this->tabControl6->Controls->Add(this->tabPage19);
+			this->tabControl6->Controls->Add(this->tabPage20);
+			this->tabControl6->Location = System::Drawing::Point(-4, 3);
+			this->tabControl6->Name = L"tabControl6";
+			this->tabControl6->SelectedIndex = 0;
+			this->tabControl6->Size = System::Drawing::Size(517, 649);
+			this->tabControl6->TabIndex = 17;
+			// 
+			// tabPage18
+			// 
+			this->tabPage18->Controls->Add(this->pictureBox5);
+			this->tabPage18->Controls->Add(this->richTextBox5);
+			this->tabPage18->Location = System::Drawing::Point(4, 29);
+			this->tabPage18->Name = L"tabPage18";
+			this->tabPage18->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage18->Size = System::Drawing::Size(509, 616);
+			this->tabPage18->TabIndex = 0;
+			this->tabPage18->Text = L"Sarasas 5";
+			this->tabPage18->UseVisualStyleBackColor = true;
 			// 
 			// pictureBox5
 			// 
@@ -645,6 +836,25 @@ namespace sisteminis2 {
 			this->richTextBox5->Size = System::Drawing::Size(509, 613);
 			this->richTextBox5->TabIndex = 9;
 			this->richTextBox5->Text = L"";
+			// 
+			// tabPage19
+			// 
+			this->tabPage19->Location = System::Drawing::Point(4, 29);
+			this->tabPage19->Name = L"tabPage19";
+			this->tabPage19->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage19->Size = System::Drawing::Size(509, 616);
+			this->tabPage19->TabIndex = 1;
+			this->tabPage19->Text = L"Vargsiukai";
+			this->tabPage19->UseVisualStyleBackColor = true;
+			// 
+			// tabPage20
+			// 
+			this->tabPage20->Location = System::Drawing::Point(4, 29);
+			this->tabPage20->Name = L"tabPage20";
+			this->tabPage20->Size = System::Drawing::Size(509, 616);
+			this->tabPage20->TabIndex = 2;
+			this->tabPage20->Text = L"Kietiakiai";
+			this->tabPage20->UseVisualStyleBackColor = true;
 			// 
 			// groupBox2
 			// 
@@ -725,216 +935,7 @@ namespace sisteminis2 {
 			this->button9->TabIndex = 12;
 			this->button9->Text = L"Rusiuoti Sarasa 1";
 			this->button9->UseVisualStyleBackColor = true;
-			// 
-			// tabControl2
-			// 
-			this->tabControl2->Controls->Add(this->tabPage6);
-			this->tabControl2->Controls->Add(this->tabPage7);
-			this->tabControl2->Controls->Add(this->tabPage8);
-			this->tabControl2->Location = System::Drawing::Point(-4, 3);
-			this->tabControl2->Name = L"tabControl2";
-			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(517, 649);
-			this->tabControl2->TabIndex = 0;
-			// 
-			// tabPage6
-			// 
-			this->tabPage6->Controls->Add(this->pictureBox1);
-			this->tabPage6->Controls->Add(this->richTextBox1);
-			this->tabPage6->Location = System::Drawing::Point(4, 29);
-			this->tabPage6->Name = L"tabPage6";
-			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage6->Size = System::Drawing::Size(509, 616);
-			this->tabPage6->TabIndex = 0;
-			this->tabPage6->Text = L"Sarasas 1";
-			this->tabPage6->UseVisualStyleBackColor = true;
-			// 
-			// tabPage7
-			// 
-			this->tabPage7->Location = System::Drawing::Point(4, 29);
-			this->tabPage7->Name = L"tabPage7";
-			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage7->Size = System::Drawing::Size(509, 616);
-			this->tabPage7->TabIndex = 1;
-			this->tabPage7->Text = L"Vargsiukai";
-			this->tabPage7->UseVisualStyleBackColor = true;
-			// 
-			// tabPage8
-			// 
-			this->tabPage8->Location = System::Drawing::Point(4, 29);
-			this->tabPage8->Name = L"tabPage8";
-			this->tabPage8->Size = System::Drawing::Size(509, 616);
-			this->tabPage8->TabIndex = 2;
-			this->tabPage8->Text = L"Kietiakiai";
-			this->tabPage8->UseVisualStyleBackColor = true;
-			// 
-			// tabControl3
-			// 
-			this->tabControl3->Controls->Add(this->tabPage9);
-			this->tabControl3->Controls->Add(this->tabPage10);
-			this->tabControl3->Controls->Add(this->tabPage11);
-			this->tabControl3->Location = System::Drawing::Point(-4, 3);
-			this->tabControl3->Name = L"tabControl3";
-			this->tabControl3->SelectedIndex = 0;
-			this->tabControl3->Size = System::Drawing::Size(517, 649);
-			this->tabControl3->TabIndex = 14;
-			// 
-			// tabPage9
-			// 
-			this->tabPage9->Controls->Add(this->pictureBox2);
-			this->tabPage9->Controls->Add(this->richTextBox2);
-			this->tabPage9->Location = System::Drawing::Point(4, 29);
-			this->tabPage9->Name = L"tabPage9";
-			this->tabPage9->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage9->Size = System::Drawing::Size(509, 616);
-			this->tabPage9->TabIndex = 0;
-			this->tabPage9->Text = L"Sarasas 2";
-			this->tabPage9->UseVisualStyleBackColor = true;
-			// 
-			// tabPage10
-			// 
-			this->tabPage10->Location = System::Drawing::Point(4, 29);
-			this->tabPage10->Name = L"tabPage10";
-			this->tabPage10->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage10->Size = System::Drawing::Size(509, 616);
-			this->tabPage10->TabIndex = 1;
-			this->tabPage10->Text = L"Vargsiukai";
-			this->tabPage10->UseVisualStyleBackColor = true;
-			// 
-			// tabPage11
-			// 
-			this->tabPage11->Location = System::Drawing::Point(4, 29);
-			this->tabPage11->Name = L"tabPage11";
-			this->tabPage11->Size = System::Drawing::Size(509, 616);
-			this->tabPage11->TabIndex = 2;
-			this->tabPage11->Text = L"Kietiakiai";
-			this->tabPage11->UseVisualStyleBackColor = true;
-			// 
-			// tabControl4
-			// 
-			this->tabControl4->Controls->Add(this->tabPage12);
-			this->tabControl4->Controls->Add(this->tabPage13);
-			this->tabControl4->Controls->Add(this->tabPage14);
-			this->tabControl4->Location = System::Drawing::Point(-4, 3);
-			this->tabControl4->Name = L"tabControl4";
-			this->tabControl4->SelectedIndex = 0;
-			this->tabControl4->Size = System::Drawing::Size(517, 649);
-			this->tabControl4->TabIndex = 15;
-			// 
-			// tabPage12
-			// 
-			this->tabPage12->Controls->Add(this->pictureBox3);
-			this->tabPage12->Controls->Add(this->richTextBox3);
-			this->tabPage12->Location = System::Drawing::Point(4, 29);
-			this->tabPage12->Name = L"tabPage12";
-			this->tabPage12->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage12->Size = System::Drawing::Size(509, 616);
-			this->tabPage12->TabIndex = 0;
-			this->tabPage12->Text = L"Sarasas 3";
-			this->tabPage12->UseVisualStyleBackColor = true;
-			// 
-			// tabPage13
-			// 
-			this->tabPage13->Location = System::Drawing::Point(4, 29);
-			this->tabPage13->Name = L"tabPage13";
-			this->tabPage13->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage13->Size = System::Drawing::Size(509, 616);
-			this->tabPage13->TabIndex = 1;
-			this->tabPage13->Text = L"Vargsiukai";
-			this->tabPage13->UseVisualStyleBackColor = true;
-			// 
-			// tabPage14
-			// 
-			this->tabPage14->Location = System::Drawing::Point(4, 29);
-			this->tabPage14->Name = L"tabPage14";
-			this->tabPage14->Size = System::Drawing::Size(509, 616);
-			this->tabPage14->TabIndex = 2;
-			this->tabPage14->Text = L"Kietiakiai";
-			this->tabPage14->UseVisualStyleBackColor = true;
-			// 
-			// tabControl5
-			// 
-			this->tabControl5->Controls->Add(this->tabPage15);
-			this->tabControl5->Controls->Add(this->tabPage16);
-			this->tabControl5->Controls->Add(this->tabPage17);
-			this->tabControl5->Location = System::Drawing::Point(-4, 3);
-			this->tabControl5->Name = L"tabControl5";
-			this->tabControl5->SelectedIndex = 0;
-			this->tabControl5->Size = System::Drawing::Size(517, 649);
-			this->tabControl5->TabIndex = 16;
-			// 
-			// tabPage15
-			// 
-			this->tabPage15->Controls->Add(this->pictureBox4);
-			this->tabPage15->Controls->Add(this->richTextBox4);
-			this->tabPage15->Location = System::Drawing::Point(4, 29);
-			this->tabPage15->Name = L"tabPage15";
-			this->tabPage15->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage15->Size = System::Drawing::Size(509, 616);
-			this->tabPage15->TabIndex = 0;
-			this->tabPage15->Text = L"Sarasas 4";
-			this->tabPage15->UseVisualStyleBackColor = true;
-			// 
-			// tabPage16
-			// 
-			this->tabPage16->Location = System::Drawing::Point(4, 29);
-			this->tabPage16->Name = L"tabPage16";
-			this->tabPage16->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage16->Size = System::Drawing::Size(509, 616);
-			this->tabPage16->TabIndex = 1;
-			this->tabPage16->Text = L"Vargsiukai";
-			this->tabPage16->UseVisualStyleBackColor = true;
-			// 
-			// tabPage17
-			// 
-			this->tabPage17->Location = System::Drawing::Point(4, 29);
-			this->tabPage17->Name = L"tabPage17";
-			this->tabPage17->Size = System::Drawing::Size(509, 616);
-			this->tabPage17->TabIndex = 2;
-			this->tabPage17->Text = L"Kietiakiai";
-			this->tabPage17->UseVisualStyleBackColor = true;
-			// 
-			// tabControl6
-			// 
-			this->tabControl6->Controls->Add(this->tabPage18);
-			this->tabControl6->Controls->Add(this->tabPage19);
-			this->tabControl6->Controls->Add(this->tabPage20);
-			this->tabControl6->Location = System::Drawing::Point(-4, 3);
-			this->tabControl6->Name = L"tabControl6";
-			this->tabControl6->SelectedIndex = 0;
-			this->tabControl6->Size = System::Drawing::Size(517, 649);
-			this->tabControl6->TabIndex = 17;
-			// 
-			// tabPage18
-			// 
-			this->tabPage18->Controls->Add(this->pictureBox5);
-			this->tabPage18->Controls->Add(this->richTextBox5);
-			this->tabPage18->Location = System::Drawing::Point(4, 29);
-			this->tabPage18->Name = L"tabPage18";
-			this->tabPage18->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage18->Size = System::Drawing::Size(509, 616);
-			this->tabPage18->TabIndex = 0;
-			this->tabPage18->Text = L"Sarasas 5";
-			this->tabPage18->UseVisualStyleBackColor = true;
-			// 
-			// tabPage19
-			// 
-			this->tabPage19->Location = System::Drawing::Point(4, 29);
-			this->tabPage19->Name = L"tabPage19";
-			this->tabPage19->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage19->Size = System::Drawing::Size(509, 616);
-			this->tabPage19->TabIndex = 1;
-			this->tabPage19->Text = L"Vargsiukai";
-			this->tabPage19->UseVisualStyleBackColor = true;
-			// 
-			// tabPage20
-			// 
-			this->tabPage20->Location = System::Drawing::Point(4, 29);
-			this->tabPage20->Name = L"tabPage20";
-			this->tabPage20->Size = System::Drawing::Size(509, 616);
-			this->tabPage20->TabIndex = 2;
-			this->tabPage20->Text = L"Kietiakiai";
-			this->tabPage20->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &MyForm::button9_Click);
 			// 
 			// MyForm
 			// 
@@ -957,27 +958,27 @@ namespace sisteminis2 {
 			this->groupBox1->ResumeLayout(false);
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
+			this->tabControl2->ResumeLayout(false);
+			this->tabPage6->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tabPage2->ResumeLayout(false);
+			this->tabControl3->ResumeLayout(false);
+			this->tabPage9->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->tabPage3->ResumeLayout(false);
+			this->tabControl4->ResumeLayout(false);
+			this->tabPage12->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->tabPage4->ResumeLayout(false);
+			this->tabControl5->ResumeLayout(false);
+			this->tabPage15->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->tabPage5->ResumeLayout(false);
+			this->tabControl6->ResumeLayout(false);
+			this->tabPage18->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox3->ResumeLayout(false);
-			this->tabControl2->ResumeLayout(false);
-			this->tabPage6->ResumeLayout(false);
-			this->tabControl3->ResumeLayout(false);
-			this->tabPage9->ResumeLayout(false);
-			this->tabControl4->ResumeLayout(false);
-			this->tabPage12->ResumeLayout(false);
-			this->tabControl5->ResumeLayout(false);
-			this->tabPage15->ResumeLayout(false);
-			this->tabControl6->ResumeLayout(false);
-			this->tabPage18->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1369,6 +1370,9 @@ namespace sisteminis2 {
 		pictureBox4->Visible = false;
 		pictureBox5->Visible = false;
 		MessageBox::Show("Sarasu generavimas pavyko!", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	}
 };
 }
