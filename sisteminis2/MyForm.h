@@ -192,9 +192,6 @@ private: System::Windows::Forms::ToolStripMenuItem^ rusiuotiVisus5SarasusToolStr
 private: System::Windows::Forms::Button^ button15;
 private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 
-
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -529,8 +526,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 			// apieProgramaToolStripMenuItem
 			// 
 			this->apieProgramaToolStripMenuItem->Name = L"apieProgramaToolStripMenuItem";
-			this->apieProgramaToolStripMenuItem->Size = System::Drawing::Size(234, 34);
+			this->apieProgramaToolStripMenuItem->Size = System::Drawing::Size(270, 34);
 			this->apieProgramaToolStripMenuItem->Text = L"&Apie programa";
+			this->apieProgramaToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::apieProgramaToolStripMenuItem_Click);
 			// 
 			// openFileDialog1
 			// 
@@ -654,7 +652,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 			this->richTextBox1->Size = System::Drawing::Size(509, 613);
 			this->richTextBox1->TabIndex = 8;
 			this->richTextBox1->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
-				L"-------------------------------------------------";
+				L"------------------------------------------------";
 			// 
 			// tabControl1
 			// 
@@ -835,7 +833,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 			this->richTextBox2->Size = System::Drawing::Size(509, 613);
 			this->richTextBox2->TabIndex = 9;
 			this->richTextBox2->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
-				L"-------------------------------------------------";
+				L"------------------------------------------------";
 			// 
 			// tabPage10
 			// 
@@ -958,7 +956,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 			this->richTextBox3->Size = System::Drawing::Size(509, 613);
 			this->richTextBox3->TabIndex = 9;
 			this->richTextBox3->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
-				L"-------------------------------------------------";
+				L"------------------------------------------------";
 			// 
 			// tabPage13
 			// 
@@ -1081,7 +1079,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 			this->richTextBox4->Size = System::Drawing::Size(509, 613);
 			this->richTextBox4->TabIndex = 9;
 			this->richTextBox4->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
-				L"-------------------------------------------------";
+				L"------------------------------------------------";
 			// 
 			// tabPage16
 			// 
@@ -1204,7 +1202,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 			this->richTextBox5->Size = System::Drawing::Size(509, 613);
 			this->richTextBox5->TabIndex = 9;
 			this->richTextBox5->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
-				L"-------------------------------------------------";
+				L"------------------------------------------------";
 			// 
 			// tabPage19
 			// 
@@ -1828,10 +1826,6 @@ private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 		MessageBox::Show("Sarasu generavimas pavyko!", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 
-	//
-	// 
-	// 
-	// 
 	// Cia prasideda failu rusiavimas...
 
 	void resetVectors() {
@@ -2266,6 +2260,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 		if ((tabControl1->SelectedTab) == (tabPage5)) {
 			richTextBox5->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
 		}
+	}
+	private: System::Void apieProgramaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show("Programos kurejas: Arnas Tomas Markunas VVK-PIT 2021", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 };
 }
