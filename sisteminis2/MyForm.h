@@ -7,8 +7,7 @@
 #include <algorithm> 
 #include <sstream> 
 #include <chrono>
-#include <list>
-#include <deque>
+
 
 namespace sisteminis2 {
 
@@ -20,6 +19,44 @@ namespace sisteminis2 {
 	using namespace System::Drawing;
 	using namespace System::IO;
 	using namespace std;
+
+	const char separator = ' ';
+	const int nameWidth = 15;
+
+	// Darbui su failais ir kitka
+	string dummy; // placeholder
+
+	// Failo duomenu ivedimui
+	string vardasT;
+	string pavardeT;
+	double egzaminasT;
+
+	// Failo duomenu saugojimas vectoriuje
+	vector< string > vardasV;
+	vector< string > pavardeV;
+	vector< double > namaiV; // Namu darbai
+	vector< double > egzaminasV;
+
+	// Namu darbu ivedimui is failo
+	double temp; // Placeholder
+
+	//vidurkio skaiciavimui
+	double hold;
+	double hold2;
+	vector< double > averageV; // Vectoriuje laikomi rezultatai V
+
+	//Mediano skaiciavimui
+	double hold3;
+	vector< double > averageM; // Vectoriuje laikomi rezultatai M
+
+	// Is string i integer konvertavimui
+	string laikom;
+
+	//finalgrade skaiciavimui
+	double vidurkisG;
+	double vidurkisGM;
+	vector < double > galutinisV;  // Vectoriuje laikomi rezultatai V
+	vector < double > galutinisM;  // Vectoriuje laikomi rezultatai M
 
 	/// <summary>
 	/// Summary for MyForm
@@ -34,6 +71,7 @@ namespace sisteminis2 {
 			//TODO: Add the constructor code here
 			//
 		}
+
 
 	protected:
 		/// <summary>
@@ -124,10 +162,35 @@ namespace sisteminis2 {
 	private: System::Windows::Forms::TabPage^ tabPage18;
 	private: System::Windows::Forms::TabPage^ tabPage19;
 	private: System::Windows::Forms::TabPage^ tabPage20;
-
-
-
-
+	private: System::Windows::Forms::RichTextBox^ richTextBox6;
+	private: System::Windows::Forms::RichTextBox^ richTextBox7;
+private: System::Windows::Forms::PictureBox^ pictureBox6;
+private: System::Windows::Forms::PictureBox^ pictureBox7;
+private: System::Windows::Forms::PictureBox^ pictureBox8;
+private: System::Windows::Forms::RichTextBox^ richTextBox8;
+private: System::Windows::Forms::PictureBox^ pictureBox9;
+private: System::Windows::Forms::RichTextBox^ richTextBox9;
+private: System::Windows::Forms::PictureBox^ pictureBox10;
+private: System::Windows::Forms::RichTextBox^ richTextBox10;
+private: System::Windows::Forms::PictureBox^ pictureBox11;
+private: System::Windows::Forms::RichTextBox^ richTextBox11;
+private: System::Windows::Forms::PictureBox^ pictureBox12;
+private: System::Windows::Forms::RichTextBox^ richTextBox12;
+private: System::Windows::Forms::PictureBox^ pictureBox13;
+private: System::Windows::Forms::RichTextBox^ richTextBox13;
+private: System::Windows::Forms::PictureBox^ pictureBox14;
+private: System::Windows::Forms::RichTextBox^ richTextBox14;
+private: System::Windows::Forms::PictureBox^ pictureBox15;
+private: System::Windows::Forms::RichTextBox^ richTextBox15;
+private: System::Windows::Forms::ToolStripMenuItem^ sarasuRusiavimasToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ rusiuotiSarasa1ToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ rusiuotiSarasa2ToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ rusiuotiSarasaToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ rusiuotiSarasa4ToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ rusiuotiSarasa5ToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^ rusiuotiVisus5SarasusToolStripMenuItem;
+private: System::Windows::Forms::Button^ button15;
+private: System::Windows::Forms::ToolStripMenuItem^ naujasToolStripMenuItem;
 
 
 
@@ -148,6 +211,7 @@ namespace sisteminis2 {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->naujasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->saveToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripSeparator1 = (gcnew System::Windows::Forms::ToolStripSeparator());
@@ -159,6 +223,13 @@ namespace sisteminis2 {
 			this->generuotiSarasa4ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->generuotiSarasa5ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->generuotiVisus5SarasusToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->sarasuRusiavimasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->rusiuotiSarasa1ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->rusiuotiSarasa2ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->rusiuotiSarasaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->rusiuotiSarasa4ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->rusiuotiSarasa5ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->rusiuotiVisus5SarasusToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->apieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->apieProgramaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
@@ -180,36 +251,57 @@ namespace sisteminis2 {
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->tabPage7 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox6 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox7 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl3 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage9 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage10 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox8 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage11 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox9 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl4 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage12 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->richTextBox3 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage13 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox10 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox10 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage14 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox11 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox11 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl5 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage15 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->richTextBox4 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage16 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox12 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox12 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage17 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox13 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox13 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl6 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage18 = (gcnew System::Windows::Forms::TabPage());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->richTextBox5 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage19 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox14 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox14 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabPage20 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox15 = (gcnew System::Windows::Forms::PictureBox());
+			this->richTextBox15 = (gcnew System::Windows::Forms::RichTextBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->button15 = (gcnew System::Windows::Forms::Button());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->button14 = (gcnew System::Windows::Forms::Button());
 			this->button13 = (gcnew System::Windows::Forms::Button());
@@ -224,22 +316,42 @@ namespace sisteminis2 {
 			this->tabControl2->SuspendLayout();
 			this->tabPage6->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->tabPage7->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
+			this->tabPage8->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
 			this->tabPage2->SuspendLayout();
 			this->tabControl3->SuspendLayout();
 			this->tabPage9->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			this->tabPage10->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
+			this->tabPage11->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
 			this->tabPage3->SuspendLayout();
 			this->tabControl4->SuspendLayout();
 			this->tabPage12->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			this->tabPage13->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->BeginInit();
+			this->tabPage14->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox11))->BeginInit();
 			this->tabPage4->SuspendLayout();
 			this->tabControl5->SuspendLayout();
 			this->tabPage15->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			this->tabPage16->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->BeginInit();
+			this->tabPage17->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox13))->BeginInit();
 			this->tabPage5->SuspendLayout();
 			this->tabControl6->SuspendLayout();
 			this->tabPage18->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			this->tabPage19->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox14))->BeginInit();
+			this->tabPage20->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox15))->BeginInit();
 			this->groupBox2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			this->SuspendLayout();
@@ -248,9 +360,9 @@ namespace sisteminis2 {
 			// 
 			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->fileToolStripMenuItem,
-					this->sarasaiToolStripMenuItem, this->apieToolStripMenuItem
+					this->sarasaiToolStripMenuItem, this->sarasuRusiavimasToolStripMenuItem, this->apieToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -260,13 +372,20 @@ namespace sisteminis2 {
 			// 
 			// fileToolStripMenuItem
 			// 
-			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
-				this->saveToolStripMenuItem,
-					this->openToolStripMenuItem, this->toolStripSeparator1, this->exitToolStripMenuItem
+			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+				this->naujasToolStripMenuItem,
+					this->saveToolStripMenuItem, this->openToolStripMenuItem, this->toolStripSeparator1, this->exitToolStripMenuItem
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
 			this->fileToolStripMenuItem->Size = System::Drawing::Size(77, 29);
 			this->fileToolStripMenuItem->Text = L"Meniu";
+			// 
+			// naujasToolStripMenuItem
+			// 
+			this->naujasToolStripMenuItem->Name = L"naujasToolStripMenuItem";
+			this->naujasToolStripMenuItem->Size = System::Drawing::Size(189, 34);
+			this->naujasToolStripMenuItem->Text = L"&Naujas";
+			this->naujasToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::naujasToolStripMenuItem_Click);
 			// 
 			// saveToolStripMenuItem
 			// 
@@ -302,8 +421,8 @@ namespace sisteminis2 {
 					this->generuotiVisus5SarasusToolStripMenuItem
 			});
 			this->sarasaiToolStripMenuItem->Name = L"sarasaiToolStripMenuItem";
-			this->sarasaiToolStripMenuItem->Size = System::Drawing::Size(83, 29);
-			this->sarasaiToolStripMenuItem->Text = L"Sarasai";
+			this->sarasaiToolStripMenuItem->Size = System::Drawing::Size(186, 29);
+			this->sarasaiToolStripMenuItem->Text = L"Sarasu Generavimas";
 			// 
 			// generuotiSarasa1ToolStripMenuItem
 			// 
@@ -347,6 +466,59 @@ namespace sisteminis2 {
 			this->generuotiVisus5SarasusToolStripMenuItem->Text = L"&Generuoti visus 5 sarasus";
 			this->generuotiVisus5SarasusToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generuotiVisus5SarasusToolStripMenuItem_Click);
 			// 
+			// sarasuRusiavimasToolStripMenuItem
+			// 
+			this->sarasuRusiavimasToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
+				this->rusiuotiSarasa1ToolStripMenuItem,
+					this->rusiuotiSarasa2ToolStripMenuItem, this->rusiuotiSarasaToolStripMenuItem, this->rusiuotiSarasa4ToolStripMenuItem, this->rusiuotiSarasa5ToolStripMenuItem,
+					this->rusiuotiVisus5SarasusToolStripMenuItem
+			});
+			this->sarasuRusiavimasToolStripMenuItem->Name = L"sarasuRusiavimasToolStripMenuItem";
+			this->sarasuRusiavimasToolStripMenuItem->Size = System::Drawing::Size(173, 29);
+			this->sarasuRusiavimasToolStripMenuItem->Text = L"Sarasu Rusiavimas";
+			// 
+			// rusiuotiSarasa1ToolStripMenuItem
+			// 
+			this->rusiuotiSarasa1ToolStripMenuItem->Name = L"rusiuotiSarasa1ToolStripMenuItem";
+			this->rusiuotiSarasa1ToolStripMenuItem->Size = System::Drawing::Size(300, 34);
+			this->rusiuotiSarasa1ToolStripMenuItem->Text = L"&Rusiuoti Sarasa 1";
+			this->rusiuotiSarasa1ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::rusiuotiSarasa1ToolStripMenuItem_Click);
+			// 
+			// rusiuotiSarasa2ToolStripMenuItem
+			// 
+			this->rusiuotiSarasa2ToolStripMenuItem->Name = L"rusiuotiSarasa2ToolStripMenuItem";
+			this->rusiuotiSarasa2ToolStripMenuItem->Size = System::Drawing::Size(300, 34);
+			this->rusiuotiSarasa2ToolStripMenuItem->Text = L"&Rusiuoti Sarasa 2";
+			this->rusiuotiSarasa2ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::rusiuotiSarasa2ToolStripMenuItem_Click);
+			// 
+			// rusiuotiSarasaToolStripMenuItem
+			// 
+			this->rusiuotiSarasaToolStripMenuItem->Name = L"rusiuotiSarasaToolStripMenuItem";
+			this->rusiuotiSarasaToolStripMenuItem->Size = System::Drawing::Size(300, 34);
+			this->rusiuotiSarasaToolStripMenuItem->Text = L"&Rusiuoti Sarasa 3";
+			this->rusiuotiSarasaToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::rusiuotiSarasaToolStripMenuItem_Click);
+			// 
+			// rusiuotiSarasa4ToolStripMenuItem
+			// 
+			this->rusiuotiSarasa4ToolStripMenuItem->Name = L"rusiuotiSarasa4ToolStripMenuItem";
+			this->rusiuotiSarasa4ToolStripMenuItem->Size = System::Drawing::Size(300, 34);
+			this->rusiuotiSarasa4ToolStripMenuItem->Text = L"&Rusiuoti Sarasa 4";
+			this->rusiuotiSarasa4ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::rusiuotiSarasa4ToolStripMenuItem_Click);
+			// 
+			// rusiuotiSarasa5ToolStripMenuItem
+			// 
+			this->rusiuotiSarasa5ToolStripMenuItem->Name = L"rusiuotiSarasa5ToolStripMenuItem";
+			this->rusiuotiSarasa5ToolStripMenuItem->Size = System::Drawing::Size(300, 34);
+			this->rusiuotiSarasa5ToolStripMenuItem->Text = L"&Rusiuoti Sarasa 5";
+			this->rusiuotiSarasa5ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::rusiuotiSarasa5ToolStripMenuItem_Click);
+			// 
+			// rusiuotiVisus5SarasusToolStripMenuItem
+			// 
+			this->rusiuotiVisus5SarasusToolStripMenuItem->Name = L"rusiuotiVisus5SarasusToolStripMenuItem";
+			this->rusiuotiVisus5SarasusToolStripMenuItem->Size = System::Drawing::Size(300, 34);
+			this->rusiuotiVisus5SarasusToolStripMenuItem->Text = L"&Rusiuoti visus 5 sarasus";
+			this->rusiuotiVisus5SarasusToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::rusiuotiVisus5SarasusToolStripMenuItem_Click);
+			// 
 			// apieToolStripMenuItem
 			// 
 			this->apieToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->apieProgramaToolStripMenuItem });
@@ -370,19 +542,19 @@ namespace sisteminis2 {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(230, 37);
+			this->button2->Location = System::Drawing::Point(298, 37);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(203, 38);
+			this->button2->Size = System::Drawing::Size(135, 38);
 			this->button2->TabIndex = 3;
-			this->button2->Text = L"Atnaujinti";
+			this->button2->Text = L"Atnaujinti (Local)";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(6, 37);
+			this->button3->Location = System::Drawing::Point(158, 37);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(203, 38);
+			this->button3->Size = System::Drawing::Size(134, 38);
 			this->button3->TabIndex = 4;
 			this->button3->Text = L"Issaugoti";
 			this->button3->UseVisualStyleBackColor = true;
@@ -400,7 +572,7 @@ namespace sisteminis2 {
 			// 
 			// progressBar1
 			// 
-			this->progressBar1->Location = System::Drawing::Point(542, 653);
+			this->progressBar1->Location = System::Drawing::Point(542, 648);
 			this->progressBar1->MarqueeAnimationSpeed = 1000;
 			this->progressBar1->Maximum = 1000;
 			this->progressBar1->Name = L"progressBar1";
@@ -481,7 +653,8 @@ namespace sisteminis2 {
 			this->richTextBox1->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
 			this->richTextBox1->Size = System::Drawing::Size(509, 613);
 			this->richTextBox1->TabIndex = 8;
-			this->richTextBox1->Text = L"";
+			this->richTextBox1->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
+				L"-------------------------------------------------";
 			// 
 			// tabControl1
 			// 
@@ -543,6 +716,8 @@ namespace sisteminis2 {
 			// 
 			// tabPage7
 			// 
+			this->tabPage7->Controls->Add(this->pictureBox6);
+			this->tabPage7->Controls->Add(this->richTextBox6);
 			this->tabPage7->Location = System::Drawing::Point(4, 29);
 			this->tabPage7->Name = L"tabPage7";
 			this->tabPage7->Padding = System::Windows::Forms::Padding(3);
@@ -551,14 +726,60 @@ namespace sisteminis2 {
 			this->tabPage7->Text = L"Vargsiukai";
 			this->tabPage7->UseVisualStyleBackColor = true;
 			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
+			this->pictureBox6->Location = System::Drawing::Point(128, 227);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(212, 56);
+			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox6->TabIndex = 10;
+			this->pictureBox6->TabStop = false;
+			this->pictureBox6->Visible = false;
+			// 
+			// richTextBox6
+			// 
+			this->richTextBox6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox6->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox6->Name = L"richTextBox6";
+			this->richTextBox6->ReadOnly = true;
+			this->richTextBox6->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox6->Size = System::Drawing::Size(509, 613);
+			this->richTextBox6->TabIndex = 9;
+			this->richTextBox6->Text = L"";
+			// 
 			// tabPage8
 			// 
+			this->tabPage8->Controls->Add(this->pictureBox7);
+			this->tabPage8->Controls->Add(this->richTextBox7);
 			this->tabPage8->Location = System::Drawing::Point(4, 29);
 			this->tabPage8->Name = L"tabPage8";
 			this->tabPage8->Size = System::Drawing::Size(509, 616);
 			this->tabPage8->TabIndex = 2;
 			this->tabPage8->Text = L"Kietiakiai";
 			this->tabPage8->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox7
+			// 
+			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
+			this->pictureBox7->Location = System::Drawing::Point(128, 227);
+			this->pictureBox7->Name = L"pictureBox7";
+			this->pictureBox7->Size = System::Drawing::Size(212, 56);
+			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox7->TabIndex = 11;
+			this->pictureBox7->TabStop = false;
+			this->pictureBox7->Visible = false;
+			// 
+			// richTextBox7
+			// 
+			this->richTextBox7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox7->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox7->Name = L"richTextBox7";
+			this->richTextBox7->ReadOnly = true;
+			this->richTextBox7->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox7->Size = System::Drawing::Size(509, 613);
+			this->richTextBox7->TabIndex = 10;
+			this->richTextBox7->Text = L"";
 			// 
 			// tabPage2
 			// 
@@ -613,10 +834,13 @@ namespace sisteminis2 {
 			this->richTextBox2->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
 			this->richTextBox2->Size = System::Drawing::Size(509, 613);
 			this->richTextBox2->TabIndex = 9;
-			this->richTextBox2->Text = L"";
+			this->richTextBox2->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
+				L"-------------------------------------------------";
 			// 
 			// tabPage10
 			// 
+			this->tabPage10->Controls->Add(this->pictureBox8);
+			this->tabPage10->Controls->Add(this->richTextBox8);
 			this->tabPage10->Location = System::Drawing::Point(4, 29);
 			this->tabPage10->Name = L"tabPage10";
 			this->tabPage10->Padding = System::Windows::Forms::Padding(3);
@@ -625,14 +849,60 @@ namespace sisteminis2 {
 			this->tabPage10->Text = L"Vargsiukai";
 			this->tabPage10->UseVisualStyleBackColor = true;
 			// 
+			// pictureBox8
+			// 
+			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
+			this->pictureBox8->Location = System::Drawing::Point(128, 227);
+			this->pictureBox8->Name = L"pictureBox8";
+			this->pictureBox8->Size = System::Drawing::Size(212, 56);
+			this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox8->TabIndex = 14;
+			this->pictureBox8->TabStop = false;
+			this->pictureBox8->Visible = false;
+			// 
+			// richTextBox8
+			// 
+			this->richTextBox8->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox8->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox8->Name = L"richTextBox8";
+			this->richTextBox8->ReadOnly = true;
+			this->richTextBox8->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox8->Size = System::Drawing::Size(509, 613);
+			this->richTextBox8->TabIndex = 10;
+			this->richTextBox8->Text = L"";
+			// 
 			// tabPage11
 			// 
+			this->tabPage11->Controls->Add(this->pictureBox9);
+			this->tabPage11->Controls->Add(this->richTextBox9);
 			this->tabPage11->Location = System::Drawing::Point(4, 29);
 			this->tabPage11->Name = L"tabPage11";
 			this->tabPage11->Size = System::Drawing::Size(509, 616);
 			this->tabPage11->TabIndex = 2;
 			this->tabPage11->Text = L"Kietiakiai";
 			this->tabPage11->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox9
+			// 
+			this->pictureBox9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.Image")));
+			this->pictureBox9->Location = System::Drawing::Point(128, 227);
+			this->pictureBox9->Name = L"pictureBox9";
+			this->pictureBox9->Size = System::Drawing::Size(212, 56);
+			this->pictureBox9->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox9->TabIndex = 14;
+			this->pictureBox9->TabStop = false;
+			this->pictureBox9->Visible = false;
+			// 
+			// richTextBox9
+			// 
+			this->richTextBox9->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox9->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox9->Name = L"richTextBox9";
+			this->richTextBox9->ReadOnly = true;
+			this->richTextBox9->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox9->Size = System::Drawing::Size(509, 613);
+			this->richTextBox9->TabIndex = 10;
+			this->richTextBox9->Text = L"";
 			// 
 			// tabPage3
 			// 
@@ -687,10 +957,13 @@ namespace sisteminis2 {
 			this->richTextBox3->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
 			this->richTextBox3->Size = System::Drawing::Size(509, 613);
 			this->richTextBox3->TabIndex = 9;
-			this->richTextBox3->Text = L"";
+			this->richTextBox3->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
+				L"-------------------------------------------------";
 			// 
 			// tabPage13
 			// 
+			this->tabPage13->Controls->Add(this->pictureBox10);
+			this->tabPage13->Controls->Add(this->richTextBox10);
 			this->tabPage13->Location = System::Drawing::Point(4, 29);
 			this->tabPage13->Name = L"tabPage13";
 			this->tabPage13->Padding = System::Windows::Forms::Padding(3);
@@ -699,14 +972,60 @@ namespace sisteminis2 {
 			this->tabPage13->Text = L"Vargsiukai";
 			this->tabPage13->UseVisualStyleBackColor = true;
 			// 
+			// pictureBox10
+			// 
+			this->pictureBox10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.Image")));
+			this->pictureBox10->Location = System::Drawing::Point(128, 227);
+			this->pictureBox10->Name = L"pictureBox10";
+			this->pictureBox10->Size = System::Drawing::Size(212, 56);
+			this->pictureBox10->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox10->TabIndex = 14;
+			this->pictureBox10->TabStop = false;
+			this->pictureBox10->Visible = false;
+			// 
+			// richTextBox10
+			// 
+			this->richTextBox10->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox10->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox10->Name = L"richTextBox10";
+			this->richTextBox10->ReadOnly = true;
+			this->richTextBox10->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox10->Size = System::Drawing::Size(509, 613);
+			this->richTextBox10->TabIndex = 10;
+			this->richTextBox10->Text = L"";
+			// 
 			// tabPage14
 			// 
+			this->tabPage14->Controls->Add(this->pictureBox11);
+			this->tabPage14->Controls->Add(this->richTextBox11);
 			this->tabPage14->Location = System::Drawing::Point(4, 29);
 			this->tabPage14->Name = L"tabPage14";
 			this->tabPage14->Size = System::Drawing::Size(509, 616);
 			this->tabPage14->TabIndex = 2;
 			this->tabPage14->Text = L"Kietiakiai";
 			this->tabPage14->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox11
+			// 
+			this->pictureBox11->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox11.Image")));
+			this->pictureBox11->Location = System::Drawing::Point(128, 227);
+			this->pictureBox11->Name = L"pictureBox11";
+			this->pictureBox11->Size = System::Drawing::Size(212, 56);
+			this->pictureBox11->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox11->TabIndex = 14;
+			this->pictureBox11->TabStop = false;
+			this->pictureBox11->Visible = false;
+			// 
+			// richTextBox11
+			// 
+			this->richTextBox11->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox11->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox11->Name = L"richTextBox11";
+			this->richTextBox11->ReadOnly = true;
+			this->richTextBox11->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox11->Size = System::Drawing::Size(509, 613);
+			this->richTextBox11->TabIndex = 10;
+			this->richTextBox11->Text = L"";
 			// 
 			// tabPage4
 			// 
@@ -761,10 +1080,13 @@ namespace sisteminis2 {
 			this->richTextBox4->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
 			this->richTextBox4->Size = System::Drawing::Size(509, 613);
 			this->richTextBox4->TabIndex = 9;
-			this->richTextBox4->Text = L"";
+			this->richTextBox4->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
+				L"-------------------------------------------------";
 			// 
 			// tabPage16
 			// 
+			this->tabPage16->Controls->Add(this->pictureBox12);
+			this->tabPage16->Controls->Add(this->richTextBox12);
 			this->tabPage16->Location = System::Drawing::Point(4, 29);
 			this->tabPage16->Name = L"tabPage16";
 			this->tabPage16->Padding = System::Windows::Forms::Padding(3);
@@ -773,14 +1095,60 @@ namespace sisteminis2 {
 			this->tabPage16->Text = L"Vargsiukai";
 			this->tabPage16->UseVisualStyleBackColor = true;
 			// 
+			// pictureBox12
+			// 
+			this->pictureBox12->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox12.Image")));
+			this->pictureBox12->Location = System::Drawing::Point(128, 227);
+			this->pictureBox12->Name = L"pictureBox12";
+			this->pictureBox12->Size = System::Drawing::Size(212, 56);
+			this->pictureBox12->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox12->TabIndex = 14;
+			this->pictureBox12->TabStop = false;
+			this->pictureBox12->Visible = false;
+			// 
+			// richTextBox12
+			// 
+			this->richTextBox12->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox12->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox12->Name = L"richTextBox12";
+			this->richTextBox12->ReadOnly = true;
+			this->richTextBox12->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox12->Size = System::Drawing::Size(509, 613);
+			this->richTextBox12->TabIndex = 10;
+			this->richTextBox12->Text = L"";
+			// 
 			// tabPage17
 			// 
+			this->tabPage17->Controls->Add(this->pictureBox13);
+			this->tabPage17->Controls->Add(this->richTextBox13);
 			this->tabPage17->Location = System::Drawing::Point(4, 29);
 			this->tabPage17->Name = L"tabPage17";
 			this->tabPage17->Size = System::Drawing::Size(509, 616);
 			this->tabPage17->TabIndex = 2;
 			this->tabPage17->Text = L"Kietiakiai";
 			this->tabPage17->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox13
+			// 
+			this->pictureBox13->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox13.Image")));
+			this->pictureBox13->Location = System::Drawing::Point(128, 227);
+			this->pictureBox13->Name = L"pictureBox13";
+			this->pictureBox13->Size = System::Drawing::Size(212, 56);
+			this->pictureBox13->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox13->TabIndex = 14;
+			this->pictureBox13->TabStop = false;
+			this->pictureBox13->Visible = false;
+			// 
+			// richTextBox13
+			// 
+			this->richTextBox13->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox13->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox13->Name = L"richTextBox13";
+			this->richTextBox13->ReadOnly = true;
+			this->richTextBox13->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox13->Size = System::Drawing::Size(509, 613);
+			this->richTextBox13->TabIndex = 10;
+			this->richTextBox13->Text = L"";
 			// 
 			// tabPage5
 			// 
@@ -835,10 +1203,13 @@ namespace sisteminis2 {
 			this->richTextBox5->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
 			this->richTextBox5->Size = System::Drawing::Size(509, 613);
 			this->richTextBox5->TabIndex = 9;
-			this->richTextBox5->Text = L"";
+			this->richTextBox5->Text = L"Pavarde\t\tVardas\t\tEgz\tND1 - ND5\n--------------------------------------------------"
+				L"-------------------------------------------------";
 			// 
 			// tabPage19
 			// 
+			this->tabPage19->Controls->Add(this->pictureBox14);
+			this->tabPage19->Controls->Add(this->richTextBox14);
 			this->tabPage19->Location = System::Drawing::Point(4, 29);
 			this->tabPage19->Name = L"tabPage19";
 			this->tabPage19->Padding = System::Windows::Forms::Padding(3);
@@ -847,8 +1218,32 @@ namespace sisteminis2 {
 			this->tabPage19->Text = L"Vargsiukai";
 			this->tabPage19->UseVisualStyleBackColor = true;
 			// 
+			// pictureBox14
+			// 
+			this->pictureBox14->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox14.Image")));
+			this->pictureBox14->Location = System::Drawing::Point(128, 227);
+			this->pictureBox14->Name = L"pictureBox14";
+			this->pictureBox14->Size = System::Drawing::Size(212, 56);
+			this->pictureBox14->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox14->TabIndex = 14;
+			this->pictureBox14->TabStop = false;
+			this->pictureBox14->Visible = false;
+			// 
+			// richTextBox14
+			// 
+			this->richTextBox14->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox14->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox14->Name = L"richTextBox14";
+			this->richTextBox14->ReadOnly = true;
+			this->richTextBox14->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox14->Size = System::Drawing::Size(509, 613);
+			this->richTextBox14->TabIndex = 10;
+			this->richTextBox14->Text = L"";
+			// 
 			// tabPage20
 			// 
+			this->tabPage20->Controls->Add(this->pictureBox15);
+			this->tabPage20->Controls->Add(this->richTextBox15);
 			this->tabPage20->Location = System::Drawing::Point(4, 29);
 			this->tabPage20->Name = L"tabPage20";
 			this->tabPage20->Size = System::Drawing::Size(509, 616);
@@ -856,8 +1251,31 @@ namespace sisteminis2 {
 			this->tabPage20->Text = L"Kietiakiai";
 			this->tabPage20->UseVisualStyleBackColor = true;
 			// 
+			// pictureBox15
+			// 
+			this->pictureBox15->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox15.Image")));
+			this->pictureBox15->Location = System::Drawing::Point(128, 227);
+			this->pictureBox15->Name = L"pictureBox15";
+			this->pictureBox15->Size = System::Drawing::Size(212, 56);
+			this->pictureBox15->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox15->TabIndex = 14;
+			this->pictureBox15->TabStop = false;
+			this->pictureBox15->Visible = false;
+			// 
+			// richTextBox15
+			// 
+			this->richTextBox15->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->richTextBox15->Location = System::Drawing::Point(-3, -3);
+			this->richTextBox15->Name = L"richTextBox15";
+			this->richTextBox15->ReadOnly = true;
+			this->richTextBox15->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox15->Size = System::Drawing::Size(509, 613);
+			this->richTextBox15->TabIndex = 10;
+			this->richTextBox15->Text = L"";
+			// 
 			// groupBox2
 			// 
+			this->groupBox2->Controls->Add(this->button15);
 			this->groupBox2->Controls->Add(this->button2);
 			this->groupBox2->Controls->Add(this->button3);
 			this->groupBox2->Location = System::Drawing::Point(536, 42);
@@ -866,6 +1284,16 @@ namespace sisteminis2 {
 			this->groupBox2->TabIndex = 10;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Redagavimas";
+			// 
+			// button15
+			// 
+			this->button15->Location = System::Drawing::Point(6, 37);
+			this->button15->Name = L"button15";
+			this->button15->Size = System::Drawing::Size(146, 38);
+			this->button15->TabIndex = 5;
+			this->button15->Text = L"Naujas";
+			this->button15->UseVisualStyleBackColor = true;
+			this->button15->Click += gcnew System::EventHandler(this, &MyForm::button15_Click);
 			// 
 			// groupBox3
 			// 
@@ -890,6 +1318,7 @@ namespace sisteminis2 {
 			this->button14->TabIndex = 12;
 			this->button14->Text = L"Rusiuoti visus 5 sarasus";
 			this->button14->UseVisualStyleBackColor = true;
+			this->button14->Click += gcnew System::EventHandler(this, &MyForm::button14_Click);
 			// 
 			// button13
 			// 
@@ -899,6 +1328,7 @@ namespace sisteminis2 {
 			this->button13->TabIndex = 12;
 			this->button13->Text = L"Rusiuoti Sarasa 5";
 			this->button13->UseVisualStyleBackColor = true;
+			this->button13->Click += gcnew System::EventHandler(this, &MyForm::button13_Click);
 			// 
 			// button12
 			// 
@@ -908,6 +1338,7 @@ namespace sisteminis2 {
 			this->button12->TabIndex = 12;
 			this->button12->Text = L"Rusiuoti Sarasa 4";
 			this->button12->UseVisualStyleBackColor = true;
+			this->button12->Click += gcnew System::EventHandler(this, &MyForm::button12_Click);
 			// 
 			// button11
 			// 
@@ -917,6 +1348,7 @@ namespace sisteminis2 {
 			this->button11->TabIndex = 12;
 			this->button11->Text = L"Rusiuoti Sarasa 3";
 			this->button11->UseVisualStyleBackColor = true;
+			this->button11->Click += gcnew System::EventHandler(this, &MyForm::button11_Click);
 			// 
 			// button10
 			// 
@@ -926,6 +1358,7 @@ namespace sisteminis2 {
 			this->button10->TabIndex = 12;
 			this->button10->Text = L"Rusiuoti Sarasa 2";
 			this->button10->UseVisualStyleBackColor = true;
+			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
 			// 
 			// button9
 			// 
@@ -949,6 +1382,8 @@ namespace sisteminis2 {
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->progressBar1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
@@ -961,22 +1396,42 @@ namespace sisteminis2 {
 			this->tabControl2->ResumeLayout(false);
 			this->tabPage6->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->tabPage7->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
+			this->tabPage8->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			this->tabPage2->ResumeLayout(false);
 			this->tabControl3->ResumeLayout(false);
 			this->tabPage9->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			this->tabPage10->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
+			this->tabPage11->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
 			this->tabPage3->ResumeLayout(false);
 			this->tabControl4->ResumeLayout(false);
 			this->tabPage12->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			this->tabPage13->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->EndInit();
+			this->tabPage14->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox11))->EndInit();
 			this->tabPage4->ResumeLayout(false);
 			this->tabControl5->ResumeLayout(false);
 			this->tabPage15->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			this->tabPage16->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->EndInit();
+			this->tabPage17->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox13))->EndInit();
 			this->tabPage5->ResumeLayout(false);
 			this->tabControl6->ResumeLayout(false);
 			this->tabPage18->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			this->tabPage19->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox14))->EndInit();
+			this->tabPage20->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox15))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox3->ResumeLayout(false);
 			this->ResumeLayout(false);
@@ -998,6 +1453,7 @@ namespace sisteminis2 {
 			System::Windows::Forms::Application::DoEvents();
 			pictureBox1->Visible = false;
 			MessageBox::Show("Sarasas1.txt buvo issaugotas!", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
 		}
 
 		if ((tabControl1->SelectedTab) == (tabPage2))
@@ -1141,8 +1597,7 @@ namespace sisteminis2 {
 			outFile->Write("Pavarde" + i + " ");
 			outFile->Write("\t");
 			outFile->Write("Vardas" + i + " ");
-			if (i < 10)
-			{
+			if (i < 10) {
 				outFile->Write("\t");
 			}
 			outFile->Write("\t");
@@ -1284,6 +1739,7 @@ namespace sisteminis2 {
 
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		issaugoti();
+		atnaujinti();
 	}
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1371,8 +1827,445 @@ namespace sisteminis2 {
 		pictureBox5->Visible = false;
 		MessageBox::Show("Sarasu generavimas pavyko!", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
-	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
 
+	//
+	// 
+	// 
+	// 
+	// Cia prasideda failu rusiavimas...
+
+	void resetVectors() {
+		pavardeV.clear();
+		vardasV.clear();
+		egzaminasV.clear();
+		galutinisM.clear();
+		galutinisV.clear();
+		namaiV.clear();
+		averageV.clear();
+		averageM.clear();
+	}
+
+	void vidurkisV() {
+		namaiV.erase(std::remove(namaiV.begin(), namaiV.end(), 0), namaiV.end());
+		hold = accumulate(namaiV.begin(), namaiV.end(), 0);
+		hold2 = hold / namaiV.size();
+		averageV.push_back(hold2);
+	}
+
+	void finalGradeV(double vidurkis, double egzaminas) {
+		vidurkisG = 0.4 * vidurkis + 0.6 * egzaminas;
+		galutinisV.push_back(vidurkisG);
+	}
+
+	void vidurkisM() {
+		namaiV.erase(std::remove(namaiV.begin(), namaiV.end(), 0), namaiV.end());
+		sort(namaiV.begin(), namaiV.end());
+		hold3 = (namaiV.size() % 2 == 0 ? (namaiV[namaiV.size() / 2] + namaiV[(namaiV.size() / 2) - 1]) / 2 : namaiV[namaiV.size() / 2]);
+		averageM.push_back(hold3);
+		namaiV.clear();
+	}
+
+	void finalGradeM(double vidurkis, double egzaminas) {
+		vidurkisGM = 0.4 * vidurkis + 0.6 * egzaminas;
+		galutinisM.push_back(vidurkisGM);
+	}
+
+	void input_main(int iki, string sarasas) {
+		fstream input(sarasas, ios::in);
+		if (input.is_open()) {
+			getline(input, dummy);
+			getline(input, dummy);
+			for (int p = 0; p < iki; p++)
+			{
+				progressBar1->Value++;
+
+				input >> pavardeT;
+				pavardeV.push_back(pavardeT);
+
+				input >> vardasT;
+				vardasV.push_back(vardasT);
+
+				input >> egzaminasT;
+				egzaminasV.push_back(egzaminasT);
+
+				for (int i = 0; i < 5; i++)
+				{
+					input >> laikom;
+					stringstream parser(laikom);
+					int x = 0;
+					parser >> x;
+					namaiV.push_back(x);
+				}
+				vidurkisV();
+				finalGradeV(averageV[p], egzaminasV[p]);
+				vidurkisM();
+				finalGradeM(averageM[p], egzaminasV[p]);
+				namaiV.clear();
+				getline(input, dummy);
+			}
+			input.close();
+		}
+		else {
+			cout << "Something went wrong! Check if sarasas[i].txt exist!";
+		}
+	}
+
+	void input_output(int iki, ofstream& vargsiukai, ofstream& kietiakiai) {
+		vargsiukai << "Pavarde           " << "Vardas            " << "Egz.           " << "Gal. (M)      " << "Gal. (V)" << endl;
+		vargsiukai << "----------------------------------------------------------------------------------------" << endl;
+		kietiakiai << "Pavarde           " << "Vardas            " << "Egz.           " << "Gal. (M)      " << "Gal. (V)" << endl;
+		kietiakiai << "----------------------------------------------------------------------------------------" << endl;
+		for (int i = 0; i < iki; i++)
+		{
+			if (galutinisV[i] < 5.00) {
+				vargsiukai << left << setw(nameWidth) << setfill(separator) << pavardeV[i];
+				if (i < 10) {
+					vargsiukai << "  ";
+				}
+				if (i > 10 && i < 100) {
+					vargsiukai << " ";
+				}
+				vargsiukai << left << setw(nameWidth) << setfill(separator) << vardasV[i];
+				if (i < 10) {
+					vargsiukai << "  ";
+				}
+				if (i > 10 && i < 100) {
+					vargsiukai << " ";
+				}
+				vargsiukai << left << setw(nameWidth) << setfill(separator) << setprecision(2) << fixed << egzaminasV[i];
+				vargsiukai << left << setw(nameWidth) << setfill(separator) << setprecision(2) << fixed << galutinisM[i];
+				vargsiukai << left << setw(nameWidth) << setfill(separator) << setprecision(2) << fixed << galutinisV[i] << endl;
+			}
+			if (galutinisV[i] >= 5.00) {
+				kietiakiai << left << setw(16) << setfill(separator) << pavardeV[i];
+				if (i < 9) {
+					kietiakiai << " ";
+				}
+				kietiakiai << left << setw(16) << setfill(separator) << vardasV[i];
+				if (i < 9) {
+					kietiakiai << " ";
+				}				
+				kietiakiai << left << setw(14) << setfill(separator) << setprecision(2) << fixed << egzaminasV[i];
+				if (egzaminasV[i] < 10) {
+					kietiakiai << " ";
+				}
+				kietiakiai << left << setw(nameWidth) << setfill(separator) << setprecision(2) << fixed << galutinisM[i];
+				kietiakiai << left << setw(nameWidth) << setfill(separator) << setprecision(2) << fixed << galutinisV[i] << endl;
+			}
+		}
+		resetVectors();
+	}
+
+	void output_sarasas1() {
+		pictureBox6->Visible = true;
+		pictureBox7->Visible = true;
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Maximum = 1000;
+
+		ofstream sarasas1_vargsiukai{"sarasas1-vargsiukai.txt"};
+		ofstream sarasas1_kietiakiai{"sarasas1-kietiakiai.txt"};
+
+		input_main(1000, "sarasas1.txt");
+		input_output(1000, sarasas1_vargsiukai, sarasas1_kietiakiai);
+
+		sarasas1_vargsiukai.close();
+		sarasas1_kietiakiai.close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileVarg1 = gcnew StreamReader("sarasas1-vargsiukai.txt");
+		richTextBox6->Text = readFileVarg1->ReadToEnd();
+		readFileVarg1->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileKiet1 = gcnew StreamReader("sarasas1-kietiakiai.txt");
+		richTextBox7->Text = readFileKiet1->ReadToEnd();
+		readFileKiet1->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Value = 0;
+		pictureBox6->Visible = false;
+		pictureBox7->Visible = false;
+		MessageBox::Show("Sarasas 1 splicing is completed.", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	void output_sarasas2() {
+		pictureBox8->Visible = true;
+		pictureBox9->Visible = true;
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Maximum = 10000;
+
+		ofstream sarasas2_vargsiukai{ "sarasas2-vargsiukai.txt" };
+		ofstream sarasas2_kietiakiai{ "sarasas2-kietiakiai.txt" };
+
+		input_main(10000, "sarasas2.txt");
+		input_output(10000, sarasas2_vargsiukai, sarasas2_kietiakiai);
+
+		sarasas2_vargsiukai.close();
+		sarasas2_kietiakiai.close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileVarg2 = gcnew StreamReader("sarasas2-vargsiukai.txt");
+		richTextBox8->Text = readFileVarg2->ReadToEnd();
+		readFileVarg2->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileKiet2 = gcnew StreamReader("sarasas2-kietiakiai.txt");
+		richTextBox9->Text = readFileKiet2->ReadToEnd();
+		readFileKiet2->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Value = 0;
+		pictureBox8->Visible = false;
+		pictureBox9->Visible = false;
+		MessageBox::Show("Sarasas 2 splicing is completed.", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	void output_sarasas3() {
+		pictureBox10->Visible = true;
+		pictureBox11->Visible = true;
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Maximum = 100000;
+
+		ofstream sarasas3_vargsiukai{ "sarasas3-vargsiukai.txt" };
+		ofstream sarasas3_kietiakiai{ "sarasas3-kietiakiai.txt" };
+
+		input_main(100000, "sarasas3.txt");
+		input_output(100000, sarasas3_vargsiukai, sarasas3_kietiakiai);
+
+		sarasas3_vargsiukai.close();
+		sarasas3_kietiakiai.close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileVarg3 = gcnew StreamReader("sarasas3-vargsiukai.txt");
+		richTextBox10->Text = readFileVarg3->ReadToEnd();
+		readFileVarg3->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileKiet3 = gcnew StreamReader("sarasas3-kietiakiai.txt");
+		richTextBox11->Text = readFileKiet3->ReadToEnd();
+		readFileKiet3->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Value = 0;
+		pictureBox10->Visible = false;
+		pictureBox11->Visible = false;
+		MessageBox::Show("Sarasas 3 splicing is completed.", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	void output_sarasas4() {
+		pictureBox12->Visible = true;
+		pictureBox13->Visible = true;
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Maximum = 1000000;
+
+		ofstream sarasas4_vargsiukai{ "sarasas4-vargsiukai.txt" };
+		ofstream sarasas4_kietiakiai{ "sarasas4-kietiakiai.txt" };
+
+		input_main(1000000, "sarasas4.txt");
+		input_output(1000000, sarasas4_vargsiukai, sarasas4_kietiakiai);
+
+		sarasas4_vargsiukai.close();
+		sarasas4_kietiakiai.close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileVarg4 = gcnew StreamReader("sarasas4-vargsiukai.txt");
+		richTextBox12->Text = readFileVarg4->ReadToEnd();
+		readFileVarg4->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileKiet4 = gcnew StreamReader("sarasas4-kietiakiai.txt");
+		richTextBox13->Text = readFileKiet4->ReadToEnd();
+		readFileKiet4->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Value = 0;
+		pictureBox12->Visible = false;
+		pictureBox13->Visible = false;
+		MessageBox::Show("Sarasas 4 splicing is completed.", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	void output_sarasas5() {
+		pictureBox14->Visible = true;
+		pictureBox15->Visible = true;
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Maximum = 10000000;
+
+		ofstream sarasas5_vargsiukai{ "sarasas5-vargsiukai.txt" };
+		ofstream sarasas5_kietiakiai{ "sarasas5-kietiakiai.txt" };
+
+		input_main(10000000, "sarasas5.txt");
+		input_output(10000000, sarasas5_vargsiukai, sarasas5_kietiakiai);
+
+		sarasas5_vargsiukai.close();
+		sarasas5_kietiakiai.close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileVarg5 = gcnew StreamReader("sarasas5-vargsiukai.txt");
+		richTextBox14->Text = readFileVarg5->ReadToEnd();
+		readFileVarg5->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		StreamReader^ readFileKiet5 = gcnew StreamReader("sarasas5-kietiakiai.txt");
+		richTextBox15->Text = readFileKiet5->ReadToEnd();
+		readFileKiet5->Close();
+
+		System::Windows::Forms::Application::DoEvents();
+		progressBar1->Value = 0;
+		pictureBox14->Visible = false;
+		pictureBox15->Visible = false;
+		MessageBox::Show("Sarasas 5 splicing is completed.", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas1();
+	}
+
+	private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas2();
+	}
+
+	private: System::Void button11_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas3();
+	}
+
+	private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas4();
+	}
+
+	private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas5();
+	}
+
+	private: System::Void button14_Click(System::Object^ sender, System::EventArgs^ e) {
+		pictureBox6->Visible = true;
+		pictureBox7->Visible = true;
+		pictureBox8->Visible = true;
+		pictureBox9->Visible = true;
+		pictureBox10->Visible = true;
+		pictureBox11->Visible = true;
+		pictureBox12->Visible = true;
+		pictureBox13->Visible = true;
+		pictureBox14->Visible = true;
+		pictureBox15->Visible = true;
+		System::Windows::Forms::Application::DoEvents();
+
+		output_sarasas1();
+		output_sarasas2();
+		output_sarasas3();
+		output_sarasas4();
+		output_sarasas5();
+
+		System::Windows::Forms::Application::DoEvents();
+		pictureBox6->Visible = false;
+		pictureBox7->Visible = false;
+		pictureBox8->Visible = false;
+		pictureBox9->Visible = false;
+		pictureBox10->Visible = false;
+		pictureBox11->Visible = false;
+		pictureBox12->Visible = false;
+		pictureBox13->Visible = false;
+		pictureBox14->Visible = false;
+		pictureBox15->Visible = false;
+		MessageBox::Show("Sarasu skirstymas pavyko!", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	private: System::Void rusiuotiSarasa1ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas1();
+	}
+
+	private: System::Void rusiuotiSarasa2ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas2();
+	}
+
+	private: System::Void rusiuotiSarasaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas3();
+	}
+
+	private: System::Void rusiuotiSarasa4ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas4();
+	}
+
+	private: System::Void rusiuotiSarasa5ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		output_sarasas5();
+	}
+
+	private: System::Void rusiuotiVisus5SarasusToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		pictureBox6->Visible = true;
+		pictureBox7->Visible = true;
+		pictureBox8->Visible = true;
+		pictureBox9->Visible = true;
+		pictureBox10->Visible = true;
+		pictureBox11->Visible = true;
+		pictureBox12->Visible = true;
+		pictureBox13->Visible = true;
+		pictureBox14->Visible = true;
+		pictureBox15->Visible = true;
+		System::Windows::Forms::Application::DoEvents();
+
+		output_sarasas1();
+		output_sarasas2();
+		output_sarasas3();
+		output_sarasas4();
+		output_sarasas5();
+
+		System::Windows::Forms::Application::DoEvents();
+		pictureBox6->Visible = false;
+		pictureBox7->Visible = false;
+		pictureBox8->Visible = false;
+		pictureBox9->Visible = false;
+		pictureBox10->Visible = false;
+		pictureBox11->Visible = false;
+		pictureBox12->Visible = false;
+		pictureBox13->Visible = false;
+		pictureBox14->Visible = false;
+		pictureBox15->Visible = false;
+		MessageBox::Show("Sarasu skirstymas pavyko!", "Programa", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	private: System::Void button15_Click(System::Object^ sender, System::EventArgs^ e) {
+		if ((tabControl1->SelectedTab) == (tabPage1)) {
+			richTextBox1->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+		}
+
+		if ((tabControl1->SelectedTab) == (tabPage2)) {
+			richTextBox2->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+
+		}
+
+		if ((tabControl1->SelectedTab) == (tabPage3)) {
+			richTextBox3->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+		}
+
+		if ((tabControl1->SelectedTab) == (tabPage4)) {
+			richTextBox4->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+		}
+
+		if ((tabControl1->SelectedTab) == (tabPage5)) {
+			richTextBox5->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+		}
+	}
+
+	private: System::Void naujasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if ((tabControl1->SelectedTab) == (tabPage1)) {
+			richTextBox1->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+		}
+
+		if ((tabControl1->SelectedTab) == (tabPage2)) {
+			richTextBox2->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+
+		}
+
+		if ((tabControl1->SelectedTab) == (tabPage3)) {
+			richTextBox3->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+		}
+
+		if ((tabControl1->SelectedTab) == (tabPage4)) {
+			richTextBox4->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+		}
+
+		if ((tabControl1->SelectedTab) == (tabPage5)) {
+			richTextBox5->Text = "Pavarde		Vardas		Egz	ND1 - ND5" + "\r\n" + "--------------------------------------------------------------------------------------------------";
+		}
 	}
 };
 }
