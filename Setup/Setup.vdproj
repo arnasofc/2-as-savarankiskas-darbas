@@ -91,6 +91,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -120,11 +136,6 @@
                     {
                     "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.7.2"
-                    }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Visual.C++.14.0.arm64"
-                    {
-                    "Name" = "8:Visual C++ \"14\" Runtime Libraries (ARM64)"
-                    "ProductCode" = "8:Microsoft.Visual.C++.14.0.arm64"
                     }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Visual.C++.14.0.x64"
                     {
@@ -384,7 +395,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Arnas_Markunas"
         "ProductCode" = "8:{7F7E182B-0409-41E5-81BB-56362E86DECE}"
-        "PackageCode" = "8:{DE3A7367-38D1-46DF-BE68-9BB141ADF626}"
+        "PackageCode" = "8:{9357102C-FA97-45A1-9B7F-3531A5A40DDC}"
         "UpgradeCode" = "8:{CA8FDA9B-790C-4918-8ECE-C92C34662A64}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
