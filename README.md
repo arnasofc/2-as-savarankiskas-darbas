@@ -11,7 +11,7 @@ Kad instaliuoti programą, prašome parsisiųsti setup.msi failą. O jeigu progr
 
 <br/>
 
-## Programos apžvalga
+## Programos apžvalga (Įsijunkite garsą)
 
 https://user-images.githubusercontent.com/72468560/148917678-d17e6dc2-d331-4397-a659-c7c839042ec8.mp4
 
