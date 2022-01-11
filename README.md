@@ -13,5 +13,6 @@ Kad instaliuoti programą, prašome parsisiųsti setup.msi failą. O jeigu progr
 
 ## Programos apžvalga
 
+https://user-images.githubusercontent.com/72468560/148917678-d17e6dc2-d331-4397-a659-c7c839042ec8.mp4
 
-[![2-as savarankiškas darbas](https://img.youtube.com/vi/q5ZhpzRF4ig/0.jpg)](https://www.youtube.com/watch?v=q5ZhpzRF4ig)
+
