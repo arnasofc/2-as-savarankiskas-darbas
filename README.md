@@ -10,5 +10,8 @@ Kad instaliuoti programą, prašome parsisiųsti setup.msi failą. O jeigu progr
 ```
 
 <br/>
+
 ## Programos apžvalga
 
+
+[![2-as savarankiškas darbas](https://img.youtube.com/vi/q5ZhpzRF4ig/0.jpg)](https://www.youtube.com/watch?v=q5ZhpzRF4ig)
