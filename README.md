@@ -5,11 +5,10 @@ Kad instaliuoti programą, prašome parsisiųsti setup.msi failą. O jeigu progr
 <br/>
 
 ```diff
-- Norint kad programa veiktu jums reikes naudoti administracinės teises (Run as administrator).
-- Programa veikia tik ant Windows systemu kurios naudoja 64 bit versija.
+- Norint, kad programa veiktų, jums reikės naudoti administracines teises (Run as administrator).
+- Programa veikia tik ant WINDOWS sistemų, kurios naudoja 64 bit versiją.
 ```
 
 <br/>
-
 ## Programos apžvalga
 
